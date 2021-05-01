@@ -24,13 +24,14 @@ jobs:
 
 workflows:
   my_workflow:
-    - build
-    - test:
-        requires:
-          - build
-    - analyze:
-        requires:
-          - test
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
 
 
 
